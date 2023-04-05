@@ -18,10 +18,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $documents = Document::paginate();
+        $documents = Document::all();
 
-        return view('document.index', compact('documents'))
-            ->with('i', (request()->input('page', 1) - 1) * $documents->perPage());
+        return view('document.index', compact('documents'));
     }
 
     /**
